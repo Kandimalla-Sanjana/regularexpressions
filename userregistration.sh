@@ -52,12 +52,19 @@ function password()
 {
 	read -p "Enter password:" password
 	patternForPassword="^.{8,}$"
+	patternForPassword2="[[:upper:]]{1,}"
 	if [[ $password =~ $patternForPassword ]]
 	then
-        	echo "Password is valid"
-	else
-        	echo "Password is invalid.It should contain atleast 8 characters"
+        	if [[ $password =~ $patternForPassword2 ]]
+        	then
+                	echo "Password is valid"
+        	else
+                	echo "Password is invalid.It should contain atleast one uppercase letter"
+        	fi
+        else
+                echo "Password is invalid.It should contain atleast 8 letters"
 	fi
+
 }
 firstname
 lastname
