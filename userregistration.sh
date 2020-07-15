@@ -36,6 +36,19 @@ function email()
         	echo "Email id is invalid"
 	fi
 }
+function phoneno()
+{
+	country_code=91
+	read -p "Enter your mobile number:" mobile
+	patternMobileNumber="^$country_code[ ][0-9]{10}$"
+	if [[ $mobile =~ $patternMobileNumber ]]
+	then
+        	echo "Mobile number is valid"
+	else
+        	echo "Mobile number is invalid"
+	fi
+}
 firstname
 lastname
 email
+phoneno
