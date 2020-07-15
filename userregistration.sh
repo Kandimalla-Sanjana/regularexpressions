@@ -25,6 +25,17 @@ function lastname()
         	echo "Last name is invalid"
 	fi
 }
-
+function email()
+{
+	read -p "Enter your email id:" email
+	patternEmail="^[a-zA-Z0-9]{1,}([._+-][a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$"
+	if [[ $email =~ $patternEmail ]]
+	then
+        	echo "Email id is valid"
+	else
+        	echo "Email id is invalid"
+	fi
+}
 firstname
 lastname
+email
