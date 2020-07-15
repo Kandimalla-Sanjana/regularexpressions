@@ -48,7 +48,19 @@ function phoneno()
         	echo "Mobile number is invalid"
 	fi
 }
+function password()
+{
+	read -p "Enter password:" password
+	patternForPassword="^.{8,}$"
+	if [[ $password =~ $patternForPassword ]]
+	then
+        	echo "Password is valid"
+	else
+        	echo "Password is invalid.It should contain atleast 8 characters"
+	fi
+}
 firstname
 lastname
 email
 phoneno
+password
