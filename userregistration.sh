@@ -54,13 +54,19 @@ function password()
 	patternForPassword="^.{8,}$"
 	patternForPassword2="[[:upper:]]{1,}"
 	patternForPassword3="[0-9]{1,}"
+	patternForPassword4="^([a-zA-Z0-9]*)[@!#%<>()/?&*]{1}([a-zA-Z0-9]*)$";
 	if [[ $password =~ $patternForPassword ]]
 	then
         	if [[ $password =~ $patternForPassword2 ]]
         	then
                 	if [[ $password =~ $patternForPassword3 ]]
                 	then
-                        	echo "Password is valid"
+                        	if [[ $password =~ $patternForPassword4 ]]
+				then
+					echo "Password valid"
+				else
+					echo "Invalid"
+				fi
                 	else
                         	echo "Password is invalid.It should contain atleast one digit"
                 	fi
